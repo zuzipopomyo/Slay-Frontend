@@ -1,9 +1,11 @@
+
+
 import "@/styles/globals.css";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      Welcome To Slay!
+    <div className="min-h-screen">
+     <h1>home</h1>
     </div>
   );
 }
