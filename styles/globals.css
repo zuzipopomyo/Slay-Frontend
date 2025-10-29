@@ -1,6 +1,70 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
 
+@theme inline {
+  --color-slay: var(--slay);
+  --color-slay-yellow: var(--slay-yellow);
+  --color-slay-purple: var(--slay-purple);
+  --color-slay-blue: var(--slay-blue);
 
+  --color-primary: var(--slay);
+  --color-secondary: var(--slay-purple);
+  --color-accent: var(--slay-yellow);
+  --color-muted: var(--slay-blue);
 
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+}
 
+:root {
+  --slay: #ffbbe1;
+  --slay-yellow: #fff58a;
+  --slay-purple: #dd7bdf;
+  --slay-blue: #b3bfff;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --border: oklch(0.9 0 0);
+  --radius: 0.625rem;
+}
+
+.dark {
+  --slay: #e391c5;
+  --slay-yellow: #fff45e;
+  --slay-purple: #c86fcf;
+  --slay-blue: #8f9cff;
+
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --border: oklch(0.3 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-slay/10 backdrop-blur-xl border border-slay/20 text-slay-purple shadow-[inset_1px_1px_0_rgba(255,255,255,0.8)];
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes story-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+.animate-story-progress {
+  animation: story-progress 3s linear forwards;
+}
